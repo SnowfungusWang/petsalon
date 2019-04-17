@@ -22,8 +22,6 @@ public class PetController {
     Pet newPet(@RequestBody Pet newPet){
         return petRepository.save(newPet);
     }
-
-
     @GetMapping("/pets/{id}")
     Pet find(@PathVariable long id){
         return petRepository.findById(id).get();

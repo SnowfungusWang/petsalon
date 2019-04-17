@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api")
 public class OwnerController {
     @Autowired
     private OwnerRepository ownersRepository;
@@ -26,28 +27,27 @@ public class OwnerController {
     }
 
 
-    @GetMapping("/owners")
-    List<Owner> all() {
-        return (List<Owner>) ownersRepository.findAll();
-    }
+    @GetMapping("/getAllOwners")
+        List<Owner> all () {
+            return (List<Owner>) ownersRepository.findAll();
+        }
 
-    @PostMapping("/owners")
+    @PostMapping("/addNewOwner")
     Owner newOwner(@RequestBody Owner newOwner){
         return ownersRepository.save(newOwner);
     }
 
-    @GetMapping("/owners/{id}")
-    Owner find(@PathVariable Long id) {
-
-       Optional<Owner> result=ownersRepository.findById(id);
+    @GetMapping("/getOwner")
+    Owner find(@RequestParam(value = "id") Long id){
+        /*Optional<Owner> result=ownersRepository.findById(id);
        return result.orElseThrow(()->new notFoundException(id));
 
         /*
         return ownersRepository.findById(id).
                 orElseThrow(()->new notFoundException(id));
+*/
 
-         */
-      // return ownersRepository.findById(id).get();
+      return ownersRepository.findById(id).get();
 
     }
 
@@ -78,8 +78,8 @@ public class OwnerController {
 
 
     }
-    @DeleteMapping("/owners/{id}")
-    void deleteOwner(@PathVariable Long id) {
+    @DeleteMapping("/deleteOwner")
+    void deleteOwner(@RequestParam (value = "id")Long id) {
         ownersRepository.deleteById(id);
     }
 /*
