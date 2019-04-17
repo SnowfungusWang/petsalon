@@ -2,12 +2,14 @@ package njuics.demos.petsalon.controller;
 
 import njuics.demos.petsalon.model.Pet;
 import njuics.demos.petsalon.repository.PetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class PetController {
+    @Autowired
     private  PetRepository petRepository;
 
     PetController(PetRepository repository) {

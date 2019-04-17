@@ -1,13 +1,11 @@
 package njuics.demos.petsalon.controller;
 
 import njuics.demos.petsalon.model.Owner;
-import njuics.demos.petsalon.model.Pet;
 import njuics.demos.petsalon.repository.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")

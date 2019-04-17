@@ -12,7 +12,7 @@ public class Owner extends baseEntity {
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-    private Set<Pet> pets;
+    private Set<Pet> pets=new HashSet<>();
 
 
 
